@@ -23,9 +23,6 @@ h3,p {
 	color: #004466;
 }
 
-h1.toppadding{
-	padding-top: 150px;
-}
 label {
 	font-weight:bold;
 	width:100px;
@@ -54,6 +51,12 @@ form {
 	opacity: 0.9;
 	width: 800px;
 	border-radius: 5px;
+}
+.box3 {			        
+	padding: 5px;
+	margin: 0 auto;
+	width: 800px;
+	border: none
 }
 input[type=text],input[type=password],select {
 	width: 98%;

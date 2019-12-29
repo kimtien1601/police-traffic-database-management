@@ -5,17 +5,19 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<h1 class="toppadding">Change password</h1>
+		<?php
+			include('connection.php');
+			
+		?>
+		<h2>Change password</h2>
 		<form class="box1" action="" method="POST">
 			<input type="password" name="oldpassword" placeholder="Your current password"/><br>
 			<input type="password" name="newpassword" placeholder="Your new password"/><br>
 			<input type="password" name="confirmpassword" placeholder="Confirm your new password"/><br>
 			<input type="Submit" value="Submit"/>
-			<input type="Submit" value="Cancel" formaction="/~psxtl3/people.php"/>
 		</form>
 
 		<?php
-			include('connection.php');								  
 			// Check connection
 			if(mysqli_connect_errno())
 			{
@@ -56,7 +58,6 @@
 
 			function function_alert($msg) {
 				echo "<script type='text/javascript'>alert('$msg');</script>";
-			}
 		?>
 
 	</body>

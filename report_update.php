@@ -28,7 +28,7 @@
 			$result = mysqli_query($conn, $sql);
 		?>
 		<script type="text/javascript">
-			alert("Updated successfully!");
+			alert("Report updated successfully!");
 			window.location = "report_list.php";
 		</script>
 	</body>

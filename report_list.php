@@ -53,7 +53,6 @@
 						echo "</tr>";
 					}
 					echo "</table>";
-					echo '<div id="div1"></div>';
 				}
 			mysqli_close($conn);
 			}
