@@ -34,7 +34,7 @@
 					$num_rows = mysqli_num_rows($result);
 					if ($num_rows == 0) // if the result is empty
 					{
-						echo "<p>Can not find this person</p>";
+						echo "<p>Can not find this vehicle</p>";
 					}
 					else
 					{

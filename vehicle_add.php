@@ -35,10 +35,10 @@
 			<button type="Submit" name="action" value="search_people" style="width:16%"/>Search</button><br>
 			<input type="text" name="O_Name" placeholder="Owner name"/><br>
 			<input type="text" name="O_Address" placeholder="Owner address"/><br>
-			<input type="text" name="O_Licence" placeholder="Driving licence number"/><br>
+			<input type="text" name="O_Licence" placeholder="Driving licence number" maxlength="16"/><br>
 			<br>
 			Vehicle information:<br>
-			<input type="text" name="V_LicenceNo" placeholder="Vehicle licence number"/><br>
+			<input type="text" name="V_LicenceNo" placeholder="Vehicle licence number" maxlength="7"/><br>
 			<input type="text" name="V_Type" placeholder="Vehicle make/model"/><br>
 			<input type="text" name="V_Colour" placeholder="Vehicle colour"/><br>
 			<button type="Submit" name="action" value="add_vehicle"/>Add vehicle</button>

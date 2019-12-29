@@ -53,12 +53,12 @@
 					echo '</select><br>';
 					
 					echo 'Textual statement:<br><input type="text" name="report" value="'.$row['Incident_Report'].'" required/><br>';
-					echo 'Vehicle licence number:<br><input type="text" name="V_LicenceNo" value="'.$row['Vehicle_licence'].'" required/><br>';
+					echo 'Vehicle licence number:<br><input type="text" name="V_LicenceNo" maxlength="7" value="'.$row['Vehicle_licence'].'" required/><br>';
 					echo 'Vehicle type:<br><input type="text" name="V_Type" value="'.$row['Vehicle_type'].'" required/><br>';
 					echo 'Vehicle colour:<br><input type="text" name="V_Colour" value="'.$row['Vehicle_colour'].'" required/><br>';
 					echo 'Owner name:<br><input type="text" name="O_Name" value="'.$row['People_name'].'" required/><br>';
 					echo 'Owner address:<br><input type="text" name="O_Address" value="'.$row['People_address'].'" required/><br>';
-					echo 'Driving licence number:<br><input type="text" name="O_Licence" value="'.$row['People_licence'].'" required/><br>';	
+					echo 'Driving licence number:<br><input type="text" name="O_Licence" maxlength="16" value="'.$row['People_licence'].'" required/><br>';	
 					echo '<button type="Submit" name="action" value="save"/>Save changes</button>';			
 					echo '</form>';
 				}
