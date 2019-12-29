@@ -6,20 +6,13 @@
 	</head>
 	<body>
 
-		<?php
+	<?php
     include('connection.php');
     include('topnav.php');
     ?>
 	<h2>Add new vehicle</h2>
 
 	<script type="text/javascript">
-		// function find_people()
-		// {
-		// 	var st= document.getElementsByTagName('input')[0].value;
-		// 	var result = "<?php echo find_people_php('"+String(st)+"');?>";
-		//
-		// 	return false;
-		// }
 		function add_people(ID)
 		{
 			var table = document.getElementById('people_list');
@@ -35,7 +28,8 @@
 			};
 		}
 	</script>
-	<form class="box2" action="" method="GET" id="myVehicle">
+	
+	<form class="box2" action="" method="POST" id="myVehicle">
 		Owner information:<br>
 		<input type="text" id="search_text" name="search_text" placeholder="Check existing people by name or driving license number"/>
 		<button type="Submit" name="action" value="search_people" />Search</button>
@@ -64,7 +58,7 @@
 		{
 			if ($_POST['search_text']!="")
 			{
-				$sql = "SELECT * FROM People WHERE People_name LIKE '%".$search."%' OR People_licence like '%".$search."%'";
+				$sql = "SELECT * FROM People WHERE People_name LIKE '%".$_POST['search_text']."%' OR People_licence like '%".$_POST['search_text']."%'";
 				$result = mysqli_query($conn, $sql);
 				$num_rows = mysqli_num_rows($result);
 				if ($num_rows == 0)
@@ -74,9 +68,9 @@
 				else
 				{
 					if ($num_rows == 1)
-						echo "<div><h3>".$num_rows." result searching for '".$search."'</h3>";
+						echo "<div><h3>".$num_rows." result searching for '".$_POST['search_text']."'</h3>";
 					else
-						echo "<div><h3>".$num_rows." results searching for '".$search."'</h3>";
+						echo "<div><h3>".$num_rows." results searching for '".$_POST['search_text']."'</h3>";
 					echo "<table id='people_list'>";  // start table
 					echo "<tr><th>People ID</th><th>People name</th><th>People address</th><th>Driving licence number</th></tr>"; // table header
 
