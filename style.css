@@ -16,7 +16,7 @@ h2 {
 	text-align: center;
 	color: #004466;
 }
-h3 {			
+h3,p {			
 	font-size: 18px;
 	padding: 2px;			
 	text-align: center;
@@ -33,6 +33,9 @@ label {
 }
 form {
 	border: 3px solid #fcfcfc;
+	font-size: 17px;
+	color: #002233;
+	text-shadow: 35px;
 }
 	
 .box1,p {			        
@@ -52,54 +55,38 @@ form {
 	width: 800px;
 	border-radius: 5px;
 }
-.box2 input[type=text],input[type=password] {
-	width: 80%;
+input[type=text],input[type=password],select {
+	width: 98%;
 	padding: 12px 20px;
-	margin: 5px;
-	border: 1px solid #ccc;
-	border-radius: 12px;
-	background-color: #fcfcfc;	
-}
-.box2 input[type=Submit],.box2 button[type=Submit], td.button {
-	width: 16%;
-	background-color: #006699;
-	color: white;
-	padding: 12px 20px;
-	margin: 5px;
-	border: none;
-	cursor: pointer;	
-	border-radius: 12px;
-}
-.box1 input[type=text],input[type=password] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
+	margin: 5px 6px;
 	border: 1px solid #ccc;
 	border-radius: 12px;
 	background-color: #fcfcfc;
+	color: #002233;
 }
-.box1 input[type=Submit] {
+input[type=Submit], button, .button {
 	background-color: #006699;
 	color: white;
 	padding: 14px 20px;
-	margin: 8px 0;
+	margin: 5px 6px;
 	border: none;
 	cursor: pointer;
-	width: 100%;	
-	border-radius: 12px;			
+	width: 98%;	
+	border-radius: 12px;
+	text-decoration: none;	
 }
+
 table, th, td {
-   padding: 10px;
-   border: 3px solid #fcfcfc;
-   border-collapse: collapse;
-   text-align: left;
-   color: #004466;
-   border-radius: 10px;
-   margin: 0 auto;
+	padding: 10px;
+	border: 3px solid #fcfcfc;
+	border-collapse: collapse;
+	text-align: left;
+	color: #004466;
+	border-radius: 10px;
+	margin: 0 auto;
 	opacity: 0.95;
 	font-size: 15px;
 }
-
 
 .usernav {
   overflow: hidden;

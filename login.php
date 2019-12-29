@@ -1,8 +1,8 @@
 <html>
 	<head>
-	<title>User Login</title>
-	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+		<title>User Login</title>
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
 		<h1 class="toppadding">User Login</h1>
@@ -33,10 +33,11 @@
 					session_start(); 
 					$_SESSION['user_name'] = $_POST['username'];
 					
+					// Query password from table Users
 					$sql = "SELECT Password FROM Users where Username='".$_POST['username']."'";
 					$result = mysqli_query($conn, $sql);
 					$num_rows = mysqli_num_rows($result);					
-					if ($num_rows === 0)
+					if ($num_rows === 0) // if the result is empty
 					{
 						function_alert("This username does not exist.\\nPlease try again!");
 					}
