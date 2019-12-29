@@ -29,7 +29,7 @@
 				if ($_POST['search_text']!="")
 				{
 					// Query Vehicle information based on the search text
-					$sql = "SELECT * FROM Vehicle, People, Ownership WHERE Vehicle.Vehicle_ID = Ownership.Vehicle_ID AND Ownership.People_ID = People.People_ID AND Vehicle_licence LIKE '%".$_POST['search_text']."%'";
+					$sql = "SELECT * FROM (Vehicle LEFT OUTER JOIN Ownership ON Vehicle.Vehicle_ID = Ownership.Vehicle_ID) LEFT OUTER JOIN People ON Ownership.People_ID = People.People_ID WHERE Vehicle_licence LIKE '%".$_POST['search_text']."%'";
 					$result = mysqli_query($conn, $sql);
 					$num_rows = mysqli_num_rows($result);
 					if ($num_rows == 0) // if the result is empty
