@@ -2,16 +2,22 @@
 	<?php		
 		session_start();
 		$user_name = $_SESSION['user_name'];
-		echo '
-		<div class="usernav">
-			<div class="userdropdown">
-			<button class="userdropbtn">Hi, '.$user_name.'!</button>
-			<div class="userdropdown-content">
-			<a href="/~psxtl3/change_password.php">Change password</a>
-			<a href="/~psxtl3/login.php">Log out</a>
-			</div>
-			</div>
-		</div>';
+		if ($user_name == "")
+			echo '<script type="text/javascript">
+			alert("Please log in again!");
+			window.location = "login.php"
+			</script>';
+		else
+			echo '
+			<div class="usernav">
+				<div class="userdropdown">
+				<button class="userdropbtn">Hi, '.$user_name.'!</button>
+				<div class="userdropdown-content">
+				<a href="/~psxtl3/change_password.php">Change password</a>
+				<a href="/~psxtl3/login.php">Log out</a>
+				</div>
+				</div>
+			</div>';
 	?>
 	<h1>POLICE TRAFFIC DATABASE</h1>
 	<div class="topnav" id="myTopnav">

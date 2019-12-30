@@ -13,12 +13,9 @@
 		</form>
 		
 		<?php       
-			// MySQL database information
-			$servername = "mysql.cs.nott.ac.uk";
-			$username = "psxtl3";
-			$password = "EQRVZT";
-			$dbname = "psxtl3";
-			$conn = mysqli_connect($servername, $username, $password,$dbname);		
+			include("connection.php");
+			session_start(); 
+			$_SESSION['user_name']="";
 								  
 			// Check connection
 			if(mysqli_connect_errno()) 
@@ -29,10 +26,8 @@
 			else
 			{
 				if ($_POST['username']!="" && $_POST['password']!="")
-				{
-					session_start(); 
-					$_SESSION['user_name'] = $_POST['username'];
-					
+				{					
+					$_SESSION['user_name'] = $_POST['username'];					
 					// Query password from table Users
 					$sql = "SELECT Password FROM Users where Username='".$_POST['username']."'";
 					$result = mysqli_query($conn, $sql);

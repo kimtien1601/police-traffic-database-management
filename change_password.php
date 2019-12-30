@@ -7,7 +7,7 @@
 	<body>
 		<?php
 			include('connection.php');
-			
+			include('topnav.php');
 		?>
 		<h2>Change password</h2>
 		<form class="box1" action="" method="POST">
@@ -27,8 +27,7 @@
 			else
 			{
 				if ($_POST['oldpassword']!="" && $_POST['newpassword']!="" && $_POST['confirmpassword']!="")
-				{
-					session_start();
+				{					
 					if ($_POST['newpassword']== $_POST['confirmpassword'])
 					{
 						// Query current password from table Users
@@ -45,7 +44,6 @@
 							$sql = "UPDATE Users SET Password = '".$_POST['newpassword']."' WHERE Username='".$_SESSION['user_name']."'";
 							$result = mysqli_query($conn, $sql);
 							function_alert("Your password changed successfully!");
-							header("location: /~psxtl3/people.php");
 						}
 					}
 					else
@@ -58,6 +56,7 @@
 
 			function function_alert($msg) {
 				echo "<script type='text/javascript'>alert('$msg');</script>";
+			}
 		?>
 
 	</body>
