@@ -9,7 +9,7 @@
 			include('connection.php');
 			include('topnav.php');
 		?>
-		
+
 		<h2>Add new vehicle</h2>
 
 		<script type="text/javascript">
@@ -28,17 +28,17 @@
 				};
 			}
 		</script>
-		
+
 		<form class="box2" action="" method="POST" id="myVehicle">
 			Owner information:<br>
 			<input type="text" id="search_text" name="search_text" placeholder="Check people existence by name or driving license number" style="width:80%"/>
 			<button type="Submit" name="action" value="search_people" style="width:16%"/>Search</button><br>
 			<input type="text" name="O_Name" placeholder="Owner name"/><br>
 			<input type="text" name="O_Address" placeholder="Owner address"/><br>
-			<input type="text" name="O_Licence" placeholder="Driving licence number" maxlength="16"/><br>
+			<input type="text" name="O_Licence" placeholder="Driving licence number"/><br>
 			<br>
 			Vehicle information:<br>
-			<input type="text" name="V_LicenceNo" placeholder="Vehicle licence number" maxlength="7"/><br>
+			<input type="text" name="V_LicenceNo" placeholder="Vehicle licence number"/><br>
 			<input type="text" name="V_Type" placeholder="Vehicle make/model"/><br>
 			<input type="text" name="V_Colour" placeholder="Vehicle colour"/><br>
 			<button type="Submit" name="action" value="add_vehicle"/>Add vehicle</button>
@@ -55,7 +55,7 @@
 		else
 		{
 			// If button "Search" is pressed
-			if ($_POST['action']=="search_people") 
+			if ($_POST['action']=="search_people")
 			{
 				if ($_POST['search_text']!="")
 				{
@@ -63,7 +63,7 @@
 					$sql = "SELECT * FROM People WHERE People_name LIKE '%".$_POST['search_text']."%' OR People_licence like '%".$_POST['search_text']."%'";
 					$result = mysqli_query($conn, $sql);
 					$num_rows = mysqli_num_rows($result);
-					
+
 					if ($num_rows == 0) // if the result is empty
 					{
 						echo "<p>Can not find this person</p>";
@@ -79,7 +79,7 @@
 						echo "<tr><th>People ID</th><th>People name</th><th>People address</th><th>Driving licence number</th></tr>"; // table header
 
 						// Draw table
-						while($row = mysqli_fetch_assoc($result)) // loop through each row of the result 
+						while($row = mysqli_fetch_assoc($result)) // loop through each row of the result
 						{
 							echo "<tr>";
 							echo "<td>".$row["People_ID"]."</td>";
@@ -94,7 +94,7 @@
 					}
 				}
 			}
-			
+
 			// If button "Add vehicle" is pressed
 			elseif ($_POST['V_LicenceNo']!="" && $_POST['V_LicenceNo']!="" && $_POST['V_Colour']!=""
 					&& $_POST['O_Name']!="" && $_POST['O_Address']!="" && $_POST['O_Licence']!="")
@@ -102,7 +102,7 @@
 				// Insert into table Vehicle
 				$sql = "INSERT INTO Vehicle(Vehicle_type,Vehicle_colour,Vehicle_licence) VALUES ('".$_POST['V_Type']."','".$_POST['V_Colour']."','".$_POST['V_LicenceNo']."')";
 				$result = mysqli_query($conn, $sql);
-				
+
 				// Get Vehicle ID (auto_increment when adding a new one)
 				$sql = "SELECT Vehicle_ID FROM Vehicle WHERE Vehicle_licence='".$_POST['V_LicenceNo']."'";
 				$result = mysqli_query($conn, $sql);
@@ -131,8 +131,8 @@
 				// Insert to table Ownership
 				$sql = "INSERT INTO Ownership VALUES ('".$O_ID."','".$V_ID."')";
 				$result = mysqli_query($conn, $sql);
-				
-				// Notification 
+
+				// Notification
 				echo "<script type='text/javascript'>alert('New vehicle added!');</script>";
 			}
 
